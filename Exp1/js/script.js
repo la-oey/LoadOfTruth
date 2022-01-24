@@ -2,7 +2,7 @@
 
 // TODO, Potentially: pick randomly between human/threePoints instructions.
 function pageLoad() {
-    var startpage = "consent"; //{"consent", "instructions", "start"}
+    var startpage = "posttest"; //{"consent", "instructions", "start", "posttest"}
     clicksMap[startpage]();
     expt.catchQuestion = sample(expt.catchQuestion);
 }
@@ -38,13 +38,27 @@ function clickPostPractice(){
     expt.roleFirst = sample(expt.roles);
     //expt.asymmTrials = distributeAsymm(expt.trials, 0.4);
     trial.roleCurrent = expt.roleFirst;
-    expt.catchTrials = distributeChecks(expt.trials, 0.15); // 0.1 of expt trials have an attention check
+    expt.catchTrials = distributeChecks(expt.trials, 0.1); // 0.1 of expt trials have an attention check
     if(expt.roleFirst == 'bullshitter'){
         bullshitter();
     } else{
         bullshitDetector();
     }
     window.scrollTo(0, 0);
+}
+
+function showPosttest(){
+    $('#postExpt').css('display','block');
+    showQuestions();
+}
+
+function clickPosttest(){
+    if(submitPosttest()){
+        $('#postExpt').css('display','none');
+        $('#completed').css('display','block');
+    } else{
+        alert("Please respond to all questions to move on.")
+    }
 }
 
 
@@ -272,7 +286,7 @@ function trialDone() {
         data = {client: client, expt: expt, trials: trialData};
         writeServer(data);
 
-        $('#completed').css('display','block');
+        showPosttest();
     } else {
         if(trial.roleCurrent == 'bullshitter'){
             trial.roleCurrent = 'bullshitDetector';

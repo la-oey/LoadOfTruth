@@ -20,6 +20,8 @@ TODO:
     <script type="text/javascript" src='js/vars.js'></script>
     <script type="text/javascript" src='js/script.js'></script>
     <script type="text/javascript" src='js/utils.js'></script>
+    <script type="text/javascript" src='js/posttestQs.js'></script>
+    <script type="text/javascript" src='js/questions.js'></script>
     <script type="text/javascript" src='js/clickMapping.js'></script>
 
 </head>
@@ -152,6 +154,15 @@ TODO:
     <button class="big-button active-button relative-button" id="nextScoreboard" type="button" onclick="trialDone();">Next!</button>
 </div>
 
+<div id="postExpt" class="screen">
+    <p class="mtitle">
+        Just a few more questions
+    </p><br><br><br><br>
+    <center>
+        <div id="posttestSurvey"></div><br><br><br><br>
+    </center>
+    <button class="big-button active-button relative-button" id="continuePosttest" onclick="clickPosttest();">Continue</button>
+</div>
 
 <div id="completed" class="screen">
     <center><h1>Scoreboard</h1></center>
@@ -189,7 +200,7 @@ TODO:
         </p><br>
         <p class="indent">
             You rejected but your opponent told the truth: <b id="stat_BS_truth"></b><br>
-            You rejected and your opponent lied: <b id="stat_BS_lie"></b><br>
+            You rejected and your opponent lied: <b id="stat_BS_lie"></b><br><br><br>
         </p>
 
     </div>
