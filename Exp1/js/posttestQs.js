@@ -1,6 +1,6 @@
 var postQs = [
 	{
-		"id": "influence",
+		"id": "about",
 		"question": "What did you think this study was about?",
 		"type": "free",
 		"answers": ""

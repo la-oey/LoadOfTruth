@@ -4,7 +4,6 @@ var expt = {
     saveURL: 'submit.simple.php',
     trials: 100, //switch to 100
     practiceTrials: 4, //how many practice trials //switch to 4
-    //goalScore: 100,
     diceSides: 10, //sides on dice
     roles: ['bullshitter', 'bullshitDetector'],
     roleFirst: 'bullshitter', //roles: {'bullshitter','bullshitDetector'}
