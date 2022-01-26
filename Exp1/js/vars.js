@@ -7,7 +7,7 @@ var expt = {
     diceSides: 10, //sides on dice
     roles: ['bullshitter', 'bullshitDetector'],
     roleFirst: 'bullshitter', //roles: {'bullshitter','bullshitDetector'}
-    catchQuestion: ['truth', 'reported'],
+    catchQuestion: ['truth', 'report'],
     catchTrials: [],
     stat: {
         playerTotalScore: 0,

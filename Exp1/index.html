@@ -23,46 +23,43 @@ TODO:
     <script type="text/javascript" src='js/posttestQs.js'></script>
     <script type="text/javascript" src='js/questions.js'></script>
     <script type="text/javascript" src='js/clickMapping.js'></script>
-
+    <script> 
+        $(function(){
+            $("#consentForm").load("madlab/consent_sona.html"); 
+        });
+    </script>
 </head>
 
 
 <body onload="pageLoad();">
 
 <div id="consent" class="screen">
-    <h1 class="mtitle">University of California, San Diego<br>
-        Consent to act as a research subject</h1>
-    <p> Edward Vul, Ph.D. is conducting a research study to find out more about decision
-        making.
-        You have been asked to participate because you are an undergraduate here at UCSD. <br><br>
-        <b>PROCEDURES.</b> If you agree to participate in this study, the following will happen to you:<br></p>
-    <p style="margin-left: 15%; margin-right: 15%">
-        1. You will sit at the computer and play a game.<br>
-        2. Try to get the highest score you can.<br><br>
+    <p class="mtitle">
+        Consent to participate in research
     </p>
     <p>
-        <b>RISKS</b>. No potential risks or discomforts are anticipated except for the possibility that some tasks may
-        be slightly boring.<br><br>
-        <b>PAYMENT/REMUNERATION</b>. In consideration of your time and inconvenience, you will receive 1 hour of course
-        credit. The procedures and length of participation will last approximately one hour.<br><br>
-        <b>RIGHTS.</b> You may call the UCSD Human Research Protection Program at 858-657-5100 to ask about your rights
-        as a research subject or to report research-related problems.<br><br>
-        <b>BENEFITS</b>. There will be no direct benefit to you from these procedures. However, the investigator may
-        learn more about basic questions pertaining to memory, perception, cognition, and learning. This knowledge may
-        have benefits to society in fields ranging from education to design of airplane cockpits, but these benefits
-        will be indirect.<br><br>
-        <b>EXPLANATION.</b> The researcher has explained this study to you and answered your questions. If you have
-        questions or research related problems, you may reach Edward Vul at 858-534-4401.<br><br>
-        <b>VOLUNTARY NATURE OF PARTICIPATION.</b> Participation in research is entirely voluntary. You may refuse to
-        participate or withdraw at any time without penalty.<br><br>
-        <b>CONFIDENTIALITY.</b> Research records will be kept confidential to the extent allowed by law. As with all
-        research, there is also the possibility of loss of confidentiality. Information from participants will be
-        identified by a study number. The database which relates the study number to a specific subject will be
-        maintained in the study coordinators office.<br><br>
-        <b>COPY OF CONSENT.</b> You have received a copy of this consent document to keep and a copy of the Experimental
-        Bill of Rights.
-    </p>
+        <b>Before starting the study, we would like to provide basic information about our research and what you will be doing in the study. To view the full document detailing information about the study, download a copy for your records by clicking the download button below.</b><br><br>
+        <b>Why is this study being done?</b> Our research team is the Mind and Development Lab, a member of the Kid Science Labs at UCSD, under Prof. Adena Schachner. We are conducting this study to find out more about children’s developing understanding of the social and physical world. <br><br>
+        <b>How long will this study take?</b> Our studies are very short (for example, 10 minutes) and your participation will involve just one session, which should take no more than 1 hour.<br><br>
+        <b>What will happen if I takes part in this study?</b> You will participate in one or more short activities that will take place at your computer or mobile device with a webcam, from the comfort of your own home or location of choice. For example, you may be asked to sort objects into categories, interact with a game, or answer questions about objects, videos or events you have seen.<br><br>
+        <b>Participation and withdrawal.</b> Taking part in this study is your choice. You are free to not take part or to withdraw at any time for any reason. There will be no penalty or loss of any benefit to which you are entitled. If you later decide that you do not want the data that has been collected from your participation to be used for future research purposes, you may notify Prof. Adena Schachner, and she will make her best effort to stop any additional data use for studies. However, in some cases, if your data has been deidentified, she may be unable to locate and stop such future usage of this data.<br><br>
+        <b>What are the risks of taking part in this study?</b> The study does not involve any risks beyond the risk of becoming bored but we try to avoid this by designing tasks to be fun and engaging. As with any study, there is a risk of loss of confidentiality, so we take many steps to ensure that the records of this study and your participation are kept confidential.<br><br>
+        <b>How will you keep my study records confidential?</b> We will keep the records of this study confidential by storing them on our secure and password protected server, on a password-protected computer in a locked room, and/or in a locked cabinet; by identifying participants by ID codes rather than names; and by only allowing laboratory personnel access to research materials.<br><br>
+        <b>Are there any benefits of being in this study? </b> You may enjoy learning about this research on cognition. Your participation will increase knowledge of how adults understand and reason about their social and physical environment.<br><br>
+        <b>Will I be paid for taking part in this study?</b> You will receive course credit through the SONA system for your participation. You will receive 0.5 credit for a study session lasting 30 minutes or less, and 1 credit for a study session lasting between 30 minutes and 1 hour.<br><br>
+        <b>What will it cost me to take part in this study?</b> Aside from time, there are no known costs to you for participating in this research study.<br><br>
+        <b>If I have any questions or concerns about this study, who can I talk to?</b> If you have questions or concerns regarding this research, either now or at any time in the future, please feel free to contact our research team (858-534-7713 or <a href="mailto:MaDlab@ucsd.edu">MaDlab@ucsd.edu</a>) or Prof. Adena Schachner (<a href="mailto:schachner@ucsd.edu">schachner@ucsd.edu</a>). You may also obtain information about your rights as a research participant by contacting the Human Research Protections Program Office at 858-246-4777.<br><br>
 
+        For more information, please view the full document and download or print a copy for your records:
+
+        <button id="downloadButton" onclick="openForm();">Download</button>
+    
+    <p>
+        <input type="checkbox" id="checkconsent" name="checkconsent">
+        <label id="checkconsentLabel">
+            <b style='color:red'>*</b><b>I agree to participate in the study.</b>
+        </label><br><br>
+    </p>
 
     <button class="big-button active-button relative-button" onclick="clickConsent();"> Click here to consent and agree to participate</button>
 </div>
@@ -86,6 +83,8 @@ TODO:
 
         <p><b>What happens if the responder <i>thinks</i> it's a lie, but the die-roller was ACTUALLY TELLING THE TRUTH?</b> Then the die-roller gains the points for what they rolled (as usual), and the responder gains the points for 10 minus the reported roll, except with a -5 penalty.</p>
     	<p class="indent">E.g. Die-roller was telling the truth: die-roller: +8 pts; responder: 2 - 5 = -3 pts</p>
+
+        <p><b>Sometimes we'll check your memory to make sure you're paying attention.</b><br>We'll ask you what you <b id="instructCond"></b>, and if you get it wrong, you will have to <b>wait 3 seconds</b> before you can move on to the next trial.</p>
     	
     	<p>This is what a round looks like:</p>
     </div>

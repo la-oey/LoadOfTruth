@@ -2,18 +2,27 @@
 
 // TODO, Potentially: pick randomly between human/threePoints instructions.
 function pageLoad() {
-    var startpage = "posttest"; //{"consent", "instructions", "start", "posttest"}
+    var startpage = "consent"; //{"consent", "instructions", "start", "posttest"}
+
     clicksMap[startpage]();
     expt.catchQuestion = sample(expt.catchQuestion);
 }
 
 function clickConsent() {
-    $('#consent').css('display','none');
-    $('#instructions').css('display','block');
-    $('#instructPractice').html(expt.practiceTrials);
-    $('#instructRounds').html(expt.trials);
-    $('#instructDiceSides').html(expt.diceSides);
-    window.scrollTo(0, 0);
+    $('.warning').hide();
+    if(checkCheckbox("checkconsent")){
+        $('#consent').css('display','none');
+        $('#instructions').css('display','block');
+        $('#instructPractice').html(expt.practiceTrials);
+        $('#instructRounds').html(expt.trials);
+        $('#instructDiceSides').html(expt.diceSides);
+        let instructCondition = expt.catch == "truth" ? "actually rolled" : "told the other player";
+        $('#instructCond').html(instructCondition);
+        window.scrollTo(0, 0);
+    } else {
+        $('#checkconsentLabel').append("<b class='warning'>Please accept to continue</b>");
+    }
+    
 }
 
 function clickInstructions() {
@@ -36,9 +45,8 @@ function clickPrePractice(){
 function clickPostPractice(){
     $('#postPractice').css('display','none');
     expt.roleFirst = sample(expt.roles);
-    //expt.asymmTrials = distributeAsymm(expt.trials, 0.4);
     trial.roleCurrent = expt.roleFirst;
-    expt.catchTrials = distributeChecks(expt.trials, 0.1); // 0.1 of expt trials have an attention check
+    expt.catchTrials = distributeChecks(expt.trials, 0.2); // 0.1 of expt trials have an attention check
     if(expt.roleFirst == 'bullshitter'){
         bullshitter();
     } else{

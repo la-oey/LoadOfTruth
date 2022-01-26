@@ -171,7 +171,7 @@ function catchTrial(role, exptPart){
         trial.catch.question = 'What number did you actually roll?';
         trial.catch.key = trial.trueRoll;
     } else{
-        trial.catch.question = 'What number did you report?';
+        trial.catch.question = 'What number did you tell the other player?';
         trial.catch.key = trial.reportedRoll;
     }
     $('#catchQ').html('<label>'+trial.catch.question+'</label>');
@@ -350,7 +350,9 @@ function distributePseudo(totalTrials, minArrPseudo, maxArrPseudo){
 }
 
 
-
+function openForm(){
+    window.open("pdf/consent_sona.pdf", '_blank');
+}
 
 
 

@@ -102,6 +102,10 @@ function submitPosttest(){
 
 
 
+function checkCheckbox(question){
+	return($('input[name = "'+question+'"]').prop("checked"));
+}
+
 
 
 

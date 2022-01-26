@@ -211,6 +211,10 @@ body {
     display: none;
 }
 
+.warning {
+    color: red;
+}
+
 .questions {
     font-size: 25px;
     font-family: verdana;
