@@ -1,4 +1,4 @@
-
+https://experiments.evullab.org/roll-die-4/
 
 function roll(numFaces, reroll) {
     $('#roll-button').prop('disabled', true);
@@ -108,6 +108,7 @@ function restartTrial(){
     $('#reportRoll').prop('disabled',true);
     $('#next').prop('disabled',true);
 
+    trial.catch.question = "";
     trial.catch.key = -1;
     trial.catch.response = -1;
     trial.catch.responseTime = -1;

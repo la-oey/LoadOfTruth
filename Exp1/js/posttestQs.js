@@ -26,7 +26,7 @@ var postQs = [
 		"answers": ["not at all", "all the time"]
 	},{
 		"id": "influence",
-		"question": "How much did you think your roll influence what you told the other player?",
+		"question": "How much did you think your roll influenced what you told the other player?",
 		"type": "slider",
 		"answers": ["not at all", "highly influential"]
 	},{
