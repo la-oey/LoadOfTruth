@@ -3,11 +3,12 @@
 var expt = {
     saveURL: 'submit.simple.php',
     trials: 100, //switch to 100
-    practiceTrials: 4, //how many practice trials //switch to 4
+    practiceTrials: 2, //how many practice trials //switch to 4
     diceSides: 10, //sides on dice
     roles: ['bullshitter', 'bullshitDetector'],
     roleFirst: 'bullshitter', //roles: {'bullshitter','bullshitDetector'}
     catchQuestion: ['truth', 'report'],
+    catchFreq: 0.25,
     catchTrials: [],
     stat: {
         playerTotalScore: 0,
@@ -26,8 +27,8 @@ var expt = {
         BS_lie: 0
     },
     sona: {
-        experiment_id: 1505,
-        credit_token: 'b20092f9d3b34a378ee654bcc50710ea'
+        experiment_id: 2243,
+        credit_token: 'd71f58f0c06b4991a3b5b9b69e46e615'
     },
     debug: false
 };

@@ -312,16 +312,32 @@ function scorePrefix(score){
 
 
 
-function distributeChecks(totalTrials, freq){
-    let halfTrials = totalTrials / 2;
-    var shuffled = shuffle([...Array(halfTrials).keys()]);
-    shuffled = shuffled.slice(0,Math.floor(halfTrials*freq*2));
+// function distributeChecks(totalTrials, freq){
+//     let halfTrials = totalTrials / 2;
+//     var shuffled = shuffle([...Array(halfTrials).keys()]);
+//     shuffled = shuffled.slice(0,Math.floor(halfTrials*freq*2));
     
+//     
+//     let checkTrials = shuffled.map(multiply);
+//     return(checkTrials);
+// }
+
+function distributeChecks(totalTrials, freq){ //pseudo random (occurs every 1/freq trials)
+    let catchDict = [];
+    let checkN = totalTrials * freq;
+    let subsetN = 1 / freq / 2;
+
     function multiply(x){
         return expt.roleFirst == "bullshitter" ? x * 2 : x * 2 + 1;
     }
-    let checkTrials = shuffled.map(multiply);
-    return(checkTrials);
+
+    for(var i=0; i<checkN; i++){
+        let tempTrial = sample([...Array(subsetN).keys()]);
+        console.log(tempTrial);
+        let thisTrial = multiply(i*subsetN + tempTrial);
+        catchDict.push(thisTrial);
+    }
+    return(catchDict)
 }
 
 

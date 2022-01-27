@@ -46,7 +46,7 @@ function clickPostPractice(){
     $('#postPractice').css('display','none');
     expt.roleFirst = sample(expt.roles);
     trial.roleCurrent = expt.roleFirst;
-    expt.catchTrials = distributeChecks(expt.trials, 0.2); // 0.1 of expt trials have an attention check
+    expt.catchTrials = distributeChecks(expt.trials, expt.catchFreq); // 25% of expt trials have an attention check
     if(expt.roleFirst == 'bullshitter'){
         bullshitter();
     } else{
@@ -76,7 +76,7 @@ function bullshitter() {
     restartTrial();
     $('#dice').css('background-color','#e31b1b');
 
-    var responseText = "<p><br>You get points for the number you report rolling; your opponent gets points for 10 minus that.</p>";
+    var responseText = "<p><br>You get points for the number you report rolling; your opponent gets points for 10 minus that... (except if they catch you lying).</p>";
     responseText += "<label><br>Say what you want your opponent to think you rolled:</label>";
     responseText += "<input type='text' id='reportRoll' value='' size='2' maxlength='2' autocomplete='off' autocorrect='off' autocapitalize='off' spellcheck='false'/> ";
     responseText += "<button class='active-button' id='report-button' type='button' onclick='report();'>Report!</button><br><br>";

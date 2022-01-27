@@ -71,7 +71,7 @@ TODO:
     <div>
     	<p>You win if you get <i>way more points than your opponent</i>.<br><br>
 
-    	You will take turns playing each role: One person will privately roll a fair <b id="instructDiceSides"></b>-sided die, and report the number rolled. The other player will then respond if they think the die-roller was LYING, or telling the truth.<br><br>
+    	You will take turns playing each role: One person will privately roll a die with numbers <b>0</b> to <b id="instructDiceSides"></b>, and report the number rolled. The other player will then respond if they think the die-roller was LYING, or telling the truth.<br><br>
 
         Here's how the points work:
         <p class="indent">The die-roller gets points for the number they reported that they rolled.</p>
@@ -81,7 +81,7 @@ TODO:
         <b>What happens if the responder DETECTS a lie?</b> If the die-roller was in fact lying, the responder gets +5 points, and the die-roller gets -5 points.</p>
         <p class="indent">E.g. Die-roller was lying: die-roller: -5 pts; responder: +5 pts</p>
 
-        <p><b>What happens if the responder <i>thinks</i> it's a lie, but the die-roller was ACTUALLY TELLING THE TRUTH?</b> Then the die-roller gains the points for what they rolled (as usual), and the responder gains the points for 10 minus the reported roll, except with a -5 penalty.</p>
+        <p><b>What happens if the responder <i>thinks</i> it's a lie, but the die-roller was ACTUALLY TELLING THE TRUTH?</b> Then the die-roller gains the points for what they rolled and the responder gains the points for 10 minus the reported roll (as usual), <i>except the responder faces a -5 penalty</i>.</p>
     	<p class="indent">E.g. Die-roller was telling the truth: die-roller: +8 pts; responder: 2 - 5 = -3 pts</p>
 
         <p><b>Sometimes we'll check your memory to make sure you're paying attention.</b><br>We'll ask you what you <b id="instructCond"></b>, and if you get it wrong, you will have to <b>wait 3 seconds</b> before you can move on to the next trial.</p>
@@ -105,7 +105,7 @@ TODO:
         Nice job! You're ready to move on to the experiment.
     </p>
     <div>
-       <p>Next, you and your opponent will play <b id="instructRounds"></b> rounds. Unlike in the practice trials, you will only see your score every fifth trial until the very end of the experiment. Good luck!</p>
+       <p>Next, you and your opponent will play <b id="instructRounds"></b> rounds (don't worry, this will only take ~30 minutes). Unlike in the practice trials, you will only see your score every fifth trial until the very end of the experiment. Good luck!</p>
     </div>
     <button class="big-button active-button" id="continueLead" onclick="clickPostPractice();">Click here to continue</button>
 </div>
