@@ -1,33 +1,45 @@
-source('cleanData.R')
+source('cleanData.R') # reading in file that cleans data and outputs stuff
+
+sender <- df %>%
+  filter(role == "sender")
+write_csv(sender, "sender.csv")
+
+receiver <- df %>%
+  filter(role == "receiver")
+write_csv(receiver, "receiver.csv")
 
 glimpse(df)
 
 
-sender %>%
+# subjects per condition
+sender %>% 
   distinct(condition, subjID) %>%
   count(condition)
 
+# calculate proportion of lying
 sender %>%
   group_by(condition) %>%
-  summarise(propLie = sum(k != ksay)/n())
+  summarise(propLie = sum(k != ksay)/n()) # # times participant lied divided by total # opportunities per condition
 
+# dot plot of lying rate
 sender %>%
   group_by(condition, subjID) %>%
-  summarise(propLie = sum(k != ksay)/n()) %>%
+  summarise(propLie = sum(k != ksay)/n()) %>% # what we did above but per subject
   ggplot(aes(x=condition, y=propLie, fill=condition)) +
   geom_dotplot(binaxis = "y", stackdir = "center", alpha=0.4) +
   stat_summary(shape=23) +
   theme_bw()
 ggsave("img/lie_rate.png")
 
+# tile plot of what was reported vs what was true
 sender %>%
-  count(condition, k, ksay) %>%
-  complete(condition=unique(sender$condition), 
+  count(condition, k, ksay) %>% # gets counts of instances of each condition, k, and ksay 
+  complete(condition=unique(sender$condition), # fills in when there are 0 instances (~creates 2 matrices)
            k=0:10, 
            ksay=0:10, 
            fill = list(n = 0)) %>%
   group_by(condition, k) %>%
-  mutate(prop = n/sum(n)) %>%
+  mutate(prop = n/sum(n)) %>% # calculates proportion of times ksay is said for a given k
   ggplot(aes(x=k, y=ksay, fill=prop)) +
   geom_tile() +
   scale_x_continuous(expand=c(0,0)) +
@@ -42,6 +54,7 @@ s.summ <- sender %>%
   summarise(meanLie = mean(ksay),
             seLie = sd(ksay)/n())
 
+# dotplot of mean lies
 sender %>%
   filter(k != ksay) %>% # look at lies
   group_by(condition, subjID) %>%
